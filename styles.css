@@ -1,0 +1,54 @@
+body {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: grey;
+}
+
+/* ---- CALCULATOR ---- */
+.calculator-container {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 500px;
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+
+/* ---- DISPLAY ---- */
+.display-container {
+    flex: 0 0 100px; 
+    display: flex;
+    justify-content: flex-end; /* text aligns to the right */
+    align-items: center; /* vertically center text */
+    background-color: #313030;
+    color: white;
+    font-size: 2rem;
+    padding: 0 10px;
+    border-radius: 15px;
+}
+
+.display {
+    width: 100%;
+    text-align: right;
+}
+
+/* ---- BUTTONS ---- */
+.buttons-container {
+    flex: 1; /* takes up remaining space below the display */
+    display: flex;
+    flex-wrap: wrap; /* allows buttons to wrap into rows */
+}
+
+.buttons-container button {
+    flex: 1 0 25%; /* 4 buttons per row */
+    height: 20%; /* 5 rows high */
+    font-size: 1.2rem;
+    border: 1px solid #ccc;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    border-radius: 8px;
+}
