@@ -27,5 +27,16 @@ function operate(n1, operator, n2) {
     }
 }
 
-console.log(operate(1, '+', 1));
+function display() {
+    let buttons = document.querySelectorAll('button')
+    let display = document.querySelector('#display');
+
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            display.textContent += button.textContent; // Append text to display
+            currentValue = display.textContent;
+        });
+    });
+}
+display();
 
