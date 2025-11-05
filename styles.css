@@ -46,7 +46,7 @@ body {
     gap: 3px;
 }
 
-.buttons-container button {
+button {
     flex: 1 0 20%; /* 4 buttons per row */
     height: 19%; /* 5 rows high */
     font-size: 1.2rem;
@@ -55,3 +55,9 @@ body {
     cursor: pointer;
     border-radius: 8px;
 }
+
+.operator {
+    background-color: orange;
+}
+
+
