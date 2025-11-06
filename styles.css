@@ -54,10 +54,32 @@ button {
     background-color: #f0f0f0;
     cursor: pointer;
     border-radius: 8px;
+
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+button:hover {                      /* Pop out effect for buttons*/     
+    transform: scale(1.08); 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); 
+}
+
+button:active {                   /* Press down effect for buttons*/ 
+    transform: scale(0.97); 
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); 
 }
 
 .operator {
     background-color: orange;
+}
+
+.operator:hover {                  /* Pop out effect for operator buttons*/ 
+    transform: scale(1.08);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.operator:active {                /* Press down effect for operator buttons when pressed*/ 
+    transform: scale(0.97);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
 
