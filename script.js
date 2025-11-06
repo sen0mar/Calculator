@@ -2,16 +2,25 @@
 function add(a, b) {return a + b;}
 function subtract(a, b) {return a - b;}
 function multiply(a, b) {return a * b;}
-function divide(a, b) {return a / b;}
+function divide(a, b) {
+    if (b === 0) {
+        return;
+    }
+    return a / b;
+}
 
 function operate(n1, operator, n2) {
-    switch (operator) {
-        case '+': return add(n1, n2);
-        case '-': return subtract(n1, n2);
-        case '*': return multiply(n1, n2);
-        case '/': return divide(n1, n2);
-        default: return 'Invalid operator';
+    let result;
+    if (operator === '+') result = add(n1, n2);
+    if (operator === '-') result = subtract(n1, n2);
+    if (operator === '*') result = multiply(n1, n2);
+    if (operator === '/') result = divide(n1, n2);
+
+    if (typeof result === "number") {
+        result = Math.round(result * 1000000) / 1000000;
     }
+
+    return result;
 }
 
 /* ---- CALCULATOR STATE ---- */
@@ -19,7 +28,7 @@ let n1 = null;     // Stores first number
 let n2 = null;     // Stores second number
 let operator = null;   // Stores selected operator
 let currentValue = '';   // Stores current string shown on the display
-
+let resultDisplayed = false;  // Track if result is displayed
 
 /* ---- DISPLAY FUNCTION & BUTTON HANDLING ---- */
 function display() {
@@ -31,7 +40,11 @@ function display() {
         const buttonId = button.id;
 
         button.addEventListener('click', () => {
-            const btnText = button.textContent;
+            if (resultDisplayed && buttonId !== 'clear' && buttonId !== 'delete' &&
+                buttonText !== '=' && buttonText !== '+' && buttonText !== '-' && buttonText !== 'x' && buttonText !== '/') {
+                currentValue = '';
+                resultDisplayed = false;
+            }
 
             // Clear button
             if (buttonId === 'clear') {
@@ -40,6 +53,7 @@ function display() {
                 operator = null;
                 currentValue = '';
                 display.textContent = '';
+                resultDisplayed = false;
                 return;
             }
             // DEL button
@@ -72,6 +86,7 @@ function display() {
                     n2 = null;
                     operator = null;
                     currentValue = result.toString();
+                    resultDisplayed = true;
                 }
                 return;
             }
